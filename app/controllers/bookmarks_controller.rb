@@ -15,10 +15,11 @@ class BookmarksController < ApplicationController
     end
   end
 
+ # In app/controllers/bookmarks_controller.rb
   def destroy
     @bookmark = Bookmark.find(params[:id])
     @bookmark.destroy
-    redirect_to list_path(@bookmark.list)
+    redirect_to list_path(@bookmark.list), notice: 'Bookmark was successfully deleted.'
   end
 
   private
